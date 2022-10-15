@@ -1,29 +1,10 @@
-<h1>All tasks</h1>
+<h1>To do:</h1>
 <hr>
-<table>
-  <tr>
-    <th>Task</th>
-    <th>Details</th>
-    <th>Status</th>
-    <th>Actions</th>
-  </tr>
 <% @tasks.each do |task| %>
-  <tr>
-    <td>
-      <%# Delete button which redirects to index %>
-      <%= link_to task.title, task_path(task) %></td>
-    </td>
-    <td><%= task.completed ? 'Complete' : 'Outstanding' %></td>
-    <td>
-      <%# THIS NEEDS TO BE A RAILS FORM WHICH UPDATES THE DB %>
-      checkbox
-    </td>
-    <td>
-      <%# Delete button which redirects to index %>
-      <%= link_to 'Remove', tasks_path(task) %></td>
-    </td>
-  </tr>
+  <div>
+    <p><%= link_to task.title, task_path(task) %></td></p>
+    <%= link_to "Delete", task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  </div>
 <% end %>
-</table>
 <hr>
-<%= link_to 'New Task ➕', tasks_new_path %>
+<%= link_to 'New Task ➕', new_task_path %>
