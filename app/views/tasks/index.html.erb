@@ -9,13 +9,14 @@
   </tr>
 <% @tasks.each do |task| %>
   <tr>
-    <td><b><%= task.title %></b></td>
-    <td><%= task.details %></td>
+    <td>
+      <%# Delete button which redirects to index %>
+      <%= link_to task.title, task_path(task) %></td>
+    </td>
     <td><%= task.completed ? 'Complete' : 'Outstanding' %></td>
-    <td><%= link_to 'View', task_path(task) %></td>
     <td>
       <%# THIS NEEDS TO BE A RAILS FORM WHICH UPDATES THE DB %>
-      <input type="checkbox" name="" id="">
+      checkbox
     </td>
     <td>
       <%# Delete button which redirects to index %>

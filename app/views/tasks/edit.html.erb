@@ -1,4 +1,4 @@
-<h1>Add a new task ➕</h1>
+<h1><%= @task.title %></h1>
 <hr>
 
 <div>
@@ -7,9 +7,8 @@
   <%= f.text_field :title %>
   <%= f.label :details %>
   <%= f.text_field :details %>
+  <%= f.label :completed %>
+  <%= f.check_box :completed %>
   <%= f.submit %>
   <% end %>
 </div>
-
-<hr>
-<%= link_to 'Back to list', tasks_path %>
