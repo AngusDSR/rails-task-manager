@@ -1,0 +1,15 @@
+<h1><%= @task.title %> <sup>( <%= @task.id %> of <%= @tasks.size %> )</sup></h1>
+<hr>
+
+<div>
+  <h3>Details:</h3>
+  <p>
+    <%= @task.details %>
+  </p>
+  <hr>
+  <h3>Task completed?</h3>
+  <p>
+    <%= @task.completed ? 'Complete' : 'Outstanding'  %>
+  </p>
+  <%= link_to 'See all tasks', tasks_path %>
+</div>

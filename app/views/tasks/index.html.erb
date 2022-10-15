@@ -1,0 +1,28 @@
+<h1>All tasks</h1>
+<hr>
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Details</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+<% @tasks.each do |task| %>
+  <tr>
+    <td><b><%= task.title %></b></td>
+    <td><%= task.details %></td>
+    <td><%= task.completed ? 'Complete' : 'Outstanding' %></td>
+    <td><%= link_to 'View', task_path(task) %></td>
+    <td>
+      <%# THIS NEEDS TO BE A RAILS FORM WHICH UPDATES THE DB %>
+      <input type="checkbox" name="" id="">
+    </td>
+    <td>
+      <%# Delete button which redirects to index %>
+      <%= link_to 'Remove', tasks_path(task) %></td>
+    </td>
+  </tr>
+<% end %>
+</table>
+<hr>
+<%= link_to 'New Task ➕', tasks_new_path %>
